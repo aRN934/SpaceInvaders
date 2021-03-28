@@ -20,19 +20,26 @@ public class SpawnInvaders : MonoBehaviour
     [SerializeField]
     float xMin = -3f;
 
+    //[SerializeField]
+    //float yMin = -0.5f;
+
+
+
 
     void Awake()
     {
-        // "Pega" num invader e coloca nesta posição
-        // Repete
 
+        //float y = yMin;
+        //que bonita esta diagonal de aliens AAARGH
         float x = xMin;
         for (int i = 1; i <= nInvasores; i++)
         { 
          GameObject newInvader = Instantiate(invasorA, transform);
-         newInvader.transform.position = new Vector3(x, -0.5f, 0f);
+         newInvader.transform.position = new Vector3(x, 0.5f , 0f);
          x += 1f;
+         //y += 0.5f;
         }
+        
 
 
     }
