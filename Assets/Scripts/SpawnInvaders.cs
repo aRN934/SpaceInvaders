@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class SpawnInvaders : MonoBehaviour
 {
+   
     [SerializeField]
-    GameObject invasorA;
+    GameObject[] invasoresDestrutiveis;
 
     [SerializeField]
-    GameObject invasorB;
-
-    [SerializeField]
-    GameObject invasorC;
-
-    [SerializeField]
-    GameObject[] invasores;
+    GameObject[] invasoresIndestrutiveis;
 
     // GameObject[] invasores; -> array, lista de valores a determinar no editor
 
@@ -33,6 +28,8 @@ public class SpawnInvaders : MonoBehaviour
     [SerializeField]
     float yInc = 0.5f;
 
+    [SerializeField]
+    float probabilidadeDeIndestrutivel = 0.15f;
 
 
     void Awake()
@@ -41,16 +38,26 @@ public class SpawnInvaders : MonoBehaviour
         
         float y = yMin;
 
-        for (int line = 0; line < invasores.Length; line++)
+        for (int line = 0; line < invasoresDestrutiveis.Length; line++)
         {
 
             float x = xMin;
 
             for (int i = 1; i <= nInvasores; i++)
             {
-                GameObject newinvader = Instantiate(invasores [line], transform);
-                newinvader.transform.position = new Vector3(x, y, 0f);
+
+                if (Random.value < probabilidadeDeIndestrutivel)
+                {
+                    GameObject newinvader = Instantiate(invasoresIndestrutiveis[line], transform);
+                    newinvader.transform.position = new Vector3(x, y, 0f);
+                }
+                else
+                {
+                    GameObject newinvader = Instantiate(invasoresDestrutiveis[line], transform);
+                    newinvader.transform.position = new Vector3(x, y, 0f);
+                }
                 x += xInc;
+
             }
             y += yInc;
         }

@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ProjectilInimigo
+  - ProjetilAmigo
+  - "Indestrut\xEDveis"
+  - "Destrut\xEDveis"
   layers:
   - Default
   - TransparentFX
@@ -13,10 +17,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Invaders
+  - FriendShip
+  - EnemyFire
+  - FriendlyFire
   - 
   - 
   - 
